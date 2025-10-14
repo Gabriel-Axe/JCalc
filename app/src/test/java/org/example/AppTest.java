@@ -16,6 +16,36 @@ public class AppTest {
  // }
 
  @Test
+ public void setOperandsTest() {
+
+  Calculator calculator = new Calculator();
+
+  int a = 3;
+  int b = 6;
+
+  calculator.setLeftOperand(a);
+  calculator.setRightOperand(b);
+
+  assertEquals(a, calculator.getLeftOperand());
+  assertEquals(b, calculator.getRightOperand());
+ }
+
+ @Test
+ public void setOperatorsTest() {
+
+  Calculator calculator = new Calculator();
+
+  // calculator.setOperator(1); TODO: Test with numbers aswell?
+  calculator.setOperator(Calculator.Operation.SUM);
+
+  calculator.setLeftOperand(2);
+  calculator.setRightOperand(3);
+
+  calculator.ApplyOpperation();
+  assertEquals(5, calculator.Result());
+ }
+
+ @Test
  public void sumTest() {
   Calculator calculator = new Calculator();
   int a = 5;

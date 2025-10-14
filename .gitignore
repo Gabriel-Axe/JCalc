@@ -5,3 +5,9 @@
 build
 
 *.db
+
+app/.classpath
+app/.project
+app/.settings
+app/bin
+

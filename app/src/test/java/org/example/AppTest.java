@@ -6,6 +6,8 @@ package org.example;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+import org.example.Calculator.Operation;
+
 public class AppTest {
 
  // NOTE: How to make a test
@@ -48,29 +50,48 @@ public class AppTest {
  @Test
  public void sumTest() {
   Calculator calculator = new Calculator();
+
   int a = 5;
   int b = 8;
-  calculator.Sum(a, b);
-  assertEquals(13, calculator.Result());
+
+  calculator.setOperator(Operation.SUM);
+  calculator.setLeftOperand(a);
+  calculator.setRightOperand(b);
+  calculator.ApplyOpperation();
+
+  assertEquals(a + b, calculator.Result());
  }
 
  @Test
  public void multiplyTest() {
   Calculator calculator = new Calculator();
+
   int a = 4;
   int b = 4;
-  calculator.Multiplicate(a, b);
-  assertEquals(16, calculator.Result());
+
+  calculator.setLeftOperand(a);
+  calculator.setRightOperand(b);
+  calculator.setOperator(Operation.MULTIPLY);
+  calculator.ApplyOpperation();
+
+  assertEquals(a * b, calculator.Result());
  }
 
  @Test
  public void powerTest() {
+
   Calculator calculator = new Calculator();
+
   int a = 2;
   int b = 5;
-  calculator.Power(a, b);
+
+  calculator.setLeftOperand(a);
+  calculator.setRightOperand(b);
+  calculator.setOperator(Operation.POWER);
+  calculator.ApplyOpperation();
+
   assertEquals(32, calculator.Result());
-  // assertEquals(4, calculator.Result());
+  // assertEquals(32, calculator.Result());
  }
 
  // @Test

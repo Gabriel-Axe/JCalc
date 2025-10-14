@@ -33,7 +33,7 @@ public class AppTest {
  }
 
  @Test
- public void setOperatorsTest() {
+ public void setOperatorTest() {
 
   Calculator calculator = new Calculator();
 
@@ -43,8 +43,17 @@ public class AppTest {
   calculator.setLeftOperand(2);
   calculator.setRightOperand(3);
 
-  calculator.ApplyOpperation();
+  calculator.applyOpperation();
   assertEquals(5, calculator.Result());
+ }
+
+ @Test
+ public void selectOperatorTest() {
+  Calculator calculator = new Calculator();
+
+  calculator.selectOperator(Calculator.Operation.POWER.getId());
+
+  assertEquals(Calculator.Operation.POWER.getId(), calculator.getOperator().getId());
  }
 
  @Test
@@ -57,7 +66,7 @@ public class AppTest {
   calculator.setOperator(Operation.SUM);
   calculator.setLeftOperand(a);
   calculator.setRightOperand(b);
-  calculator.ApplyOpperation();
+  calculator.applyOpperation();
 
   assertEquals(a + b, calculator.Result());
  }
@@ -72,7 +81,7 @@ public class AppTest {
   calculator.setLeftOperand(a);
   calculator.setRightOperand(b);
   calculator.setOperator(Operation.MULTIPLY);
-  calculator.ApplyOpperation();
+  calculator.applyOpperation();
 
   assertEquals(a * b, calculator.Result());
  }
@@ -88,7 +97,7 @@ public class AppTest {
   calculator.setLeftOperand(a);
   calculator.setRightOperand(b);
   calculator.setOperator(Operation.POWER);
-  calculator.ApplyOpperation();
+  calculator.applyOpperation();
 
   assertEquals(32, calculator.Result());
   // assertEquals(32, calculator.Result());
